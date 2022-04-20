@@ -27,4 +27,5 @@ class StepAdmin(admin.ModelAdmin):
 admin.site.register(Recipe, RecipeAdmin)
 admin.site.register(Measure, MeasureAdmin)
 admin.site.register(FoodItem, FoodItemAdmin)
-admin.site.register(Step, StepAdmin)
+admin.site.register(Ingredient, IngredientAdmin)
+admin.site.register(FoodItem, FoodItemAdmin)
