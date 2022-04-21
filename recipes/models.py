@@ -46,6 +46,15 @@ class Step(models.Model):
     )
     order = models.PositiveSmallIntegerField()
     directions = models.CharField(max_length=300)
+    foor_items = models.ManyToManyField("FoodItem", null=True, blank=True)
 
     def __str__(self):
         return self.recipe
+
+
+class Tag(models.Model):
+    name = models.CharField(max_length=20)
+    recipes = models.ManyToManyField("recipes.Recipe", related_name="tags")
+
+    def __str__(self):
+        return self.name
