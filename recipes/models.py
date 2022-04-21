@@ -27,6 +27,9 @@ class Measure(models.Model):
 class FoodItem(models.Model):
     name = models.CharField(max_length=100)
 
+    def __str__(self):
+        return self.name
+
 
 class Ingredient(models.Model):
     amount = models.FloatField()
@@ -37,7 +40,7 @@ class Ingredient(models.Model):
     food = models.ForeignKey("fooditem", on_delete=models.PROTECT)
 
     def __str__(self):
-        return self.amount
+        return f"{str(self.amount)} {str(self.measure)} {str(self.food)}"
 
 
 class Step(models.Model):
@@ -46,15 +49,7 @@ class Step(models.Model):
     )
     order = models.PositiveSmallIntegerField()
     directions = models.CharField(max_length=300)
-    foor_items = models.ManyToManyField("FoodItem", null=True, blank=True)
+    food_items = models.ManyToManyField("FoodItem", null=True, blank=True)
 
     def __str__(self):
         return self.recipe
-
-
-class Tag(models.Model):
-    name = models.CharField(max_length=20)
-    recipes = models.ManyToManyField("recipes.Recipe", related_name="tags")
-
-    def __str__(self):
-        return self.name
