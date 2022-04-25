@@ -1,6 +1,5 @@
 from django import forms
 
-
 try:
     from recipes.models import Recipe
 
@@ -18,13 +17,10 @@ except Exception:
     pass
 
 
-try:
-    from recipes.models import Rating
+from recipes.models import Rating
 
-    class RatingForm(forms.ModelForm):
-        class Meta:
-            model = Rating
-            fields = ["value"]
 
-except Exception:
-    pass
+class RatingForm(forms.ModelForm):
+    class Meta:
+        model = Rating
+        fields = ["value"]
