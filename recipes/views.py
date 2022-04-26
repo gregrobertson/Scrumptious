@@ -43,7 +43,7 @@ class RecipeCreateView(CreateView):
     model = Recipe
     template_name = "recipes/new.html"
     fields = ["name", "author", "description", "image"]
-    success_url = reverse_lazy("recipe_list")
+    success_url = reverse_lazy("recipes_list")
 
 
 class RecipeUpdateView(UpdateView):
@@ -56,4 +56,4 @@ class RecipeUpdateView(UpdateView):
 class RecipeDeleteView(DeleteView):
     model = Recipe
     template_name = "recipes/delete.html"
-    success_url = reverse_lazy("recipe_list")
+    success_url = reverse_lazy("recipes_list")
