@@ -10,7 +10,7 @@ from recipes.views import (
 )
 
 urlpatterns = [
-    path("", RecipeListView.as_view(), name="recipes_list"),
+    path("", RecipeListView.as_view(), name="recipe_list"),
     path("<int:pk>/", RecipeDetailView.as_view(), name="recipe_detail"),
     path("<int:pk>/delete/", RecipeDeleteView.as_view(), name="recipe_delete"),
     path("new/", RecipeCreateView.as_view(), name="recipe_new"),
