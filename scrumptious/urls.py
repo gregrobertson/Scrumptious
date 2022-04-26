@@ -23,7 +23,7 @@ urlpatterns = [
     path("tags/", include("tags.urls")),
     path(
         "",
-        RedirectView.as_view(url=reverse_lazy("recipes_list")),
+        RedirectView.as_view(url=reverse_lazy("recipe_list")),
         name="home",
     ),
 ]

@@ -1,4 +1,5 @@
 {% load static %}
+{% load markdownify %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,7 +8,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tags -- Scrumptious</title>
+  <title>New Recipe - Scrumptious</title>
   <link rel="stylesheet" href="{% static 'css/app.css' %}">
 </head>
 
@@ -22,21 +23,19 @@
           <a href="{% url 'admin:index' %}">Admin</a>
         </li>
         <li>
-          <a href="{% url 'tag_new' %}">Write a tag</a>
+          <a href="{% url 'recipe_new' %}">Write a recipe</a>
         </li>
       </ul>
     </nav>
   </header>
-  <main class="recipe-grid">
-    {% for tag in tag_list %}
-    <div class="recipe-card">
-      <h2 class="recipe-card-title">
-        <a href="{% url 'tag_detail' tag.pk %}">{{ tag.name }}</a>
-      </h2>
-      <p class="recipe-card-date">{{ tag.updated }}</p>
+  <main class="recipe-detail">
+  
+    <h1>{{ tag.name }}</h1>
+    <div>
+      <a href=“{% url 'tag_edit' tag.id %}“>Edit</a>
+      <a href=“{% url 'tag_delete' tag.id %}“>Delete</a>
     </div>
-    {% endfor %}
-  </main>
+     </main>
 </body>
 
 </html>
