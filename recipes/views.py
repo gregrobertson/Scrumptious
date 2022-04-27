@@ -7,7 +7,6 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 from recipes.forms import RatingForm
 
-from recipes.forms import RecipeForm
 from recipes.models import Recipe
 
 

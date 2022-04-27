@@ -8,16 +8,29 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('recipes', '0003_step_food_items'),
+        ("recipes", "0003_step_food_items"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Tag',
+            name="Tag",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=20)),
-                ('recipes', models.ManyToManyField(related_name='tags', to='recipes.recipe')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=20)),
+                (
+                    "recipes",
+                    models.ManyToManyField(
+                        related_name="tags", to="recipes.recipe"
+                    ),
+                ),
             ],
         ),
     ]
