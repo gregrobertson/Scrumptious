@@ -24,7 +24,7 @@
       </div>
     </form>
     <p>Tags: {% for tag in recipe.tags.all %}{{ tag.word }} {% endfor %}</p>
-    {{ recipe.description | markdownify }}
+    <p>Description: {{ recipe.description | markdownify }}</p>
     <h2>Ingredients</h2>
     <table>
       <thead>
