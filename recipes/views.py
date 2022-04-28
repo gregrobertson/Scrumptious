@@ -83,3 +83,8 @@ def create_shopping_item(request):
         pass
     # Go back to the recipe page
     return redirect("recipe_detail", pk=ingredient.recipe.id)
+
+
+class ShoppingItemListView(LoginRequiredMixin, ListView):
+    model = Recipe
+    template_name = "recipes/shopping_items.html"

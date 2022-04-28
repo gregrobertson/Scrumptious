@@ -4,6 +4,7 @@ from recipes.views import (
     RecipeCreateView,
     RecipeDeleteView,
     RecipeUpdateView,
+    ShoppingItemListView,
     log_rating,
     RecipeDetailView,
     RecipeListView,
@@ -21,6 +22,11 @@ urlpatterns = [
         "shopping_items/create/",
         create_shopping_item,
         name="shopping_item_create",
+    ),
+    path(
+        "shopping_items/",
+        ShoppingItemListView.as_view(),
+        name="shopping_item_list",
     )
     # path("accounts/login/", auth_views.LoginView.as_view(), name="login"),
     # path("accounts/logout/", auth_views.LogoutView.as_view(), name="logout"),

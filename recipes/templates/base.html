@@ -26,11 +26,9 @@
           <a href="{% url 'mealplans_list' %}">Meal Plans</a>
         </li>
         {% endif %}
-        {% if user.is_staff %}
         <li>
-          <a href="{% url 'admin:index' %}">Admin</a>
+          <a href="{% url 'shopping_item_list' %}">Shop List ({{ user.shopping_items.all|length }})</a>
         </li>
-        {% endif %}
         <li>
           <a href="{% url 'recipe_new' %}">Write a recipe</a>
         </li>
@@ -42,6 +40,11 @@
         {% if user.is_not_authenticated %}
         <li>
           <a href="{% url 'login' %}">Login</a>
+        </li>
+        {% endif %}
+        {% if user.is_staff %}
+        <li>
+          <a href="{% url 'admin:index' %}">Admin</a>
         </li>
         {% endif %}
       </ul>

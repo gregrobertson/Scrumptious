@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap'); */
 
 html,
 button,
@@ -7,6 +7,10 @@ textarea,
 input {
   font-family: 'Roboto';
   font-size: 16px;
+}
+
+body {
+  background-color: lightblue;
 }
 
 header nav ul {
