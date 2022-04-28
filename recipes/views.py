@@ -88,3 +88,8 @@ def create_shopping_item(request):
 class ShoppingItemListView(LoginRequiredMixin, ListView):
     model = Recipe
     template_name = "recipes/shopping_items.html"
+
+
+def delete_all_shopping_items(request):
+    ShoppingItem.objects.filter(user=request.user).delete()
+    return redirect("shopping_item_list")

@@ -5,6 +5,7 @@ from recipes.views import (
     RecipeDeleteView,
     RecipeUpdateView,
     ShoppingItemListView,
+    delete_all_shopping_items,
     log_rating,
     RecipeDetailView,
     RecipeListView,
@@ -27,7 +28,12 @@ urlpatterns = [
         "shopping_items/",
         ShoppingItemListView.as_view(),
         name="shopping_item_list",
-    )
+    ),
+    path(
+        "shopping_items/delete",
+        delete_all_shopping_items,
+        name="delete_all_shopping_items",
+    ),
     # path("accounts/login/", auth_views.LoginView.as_view(), name="login"),
     # path("accounts/logout/", auth_views.LogoutView.as_view(), name="logout"),
 ]
