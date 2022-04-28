@@ -26,7 +26,7 @@
     {% for mealplans in mealplans_list %}
       <div class="recipe-card">
         <h2 class="recipe-card-title">
-          <a href="{% url 'meal_plan_detail' meal_plans.id %}">{{ meal_plans.name }}</a>
+          <a href="{% url 'mealplan_detail' mealplans.id %}">{{ mealplans.name }}</a>
         </h2>
         {% for recipe in mealplans.recipes.all %}
           <p>
@@ -39,7 +39,7 @@
         <h1>No tags, yet</h1>
         <p>
           Would you like to
-          <a href="{% url 'meal_plans_new' %}">create</a>
+          <a href="{% url 'mealplans_new' %}">create</a>
           one?
         </p>
       </div>
