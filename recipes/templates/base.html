@@ -21,6 +21,11 @@
         <li>
           <a href="{% url 'tags_list' %}">Tags</a>
         </li>
+        {% if user.is_authenticated %}
+        <li>
+          <a href="{% url 'mealplans_list' %}">Meal Plans</a>
+        </li>
+        {% endif %}
         {% if user.is_staff %}
         <li>
           <a href="{% url 'admin:index' %}">Admin</a>
