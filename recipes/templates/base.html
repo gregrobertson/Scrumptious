@@ -34,6 +34,11 @@
           <a href="{% url 'logout' %}">Logout</a>
         </li>
         {% endif %}
+        {% if user.is_not_authenticated %}
+        <li>
+          <a href="{% url 'login' %}">Login</a>
+        </li>
+        {% endif %}
       </ul>
     </nav>
     {% block pagination %}

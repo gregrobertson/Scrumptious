@@ -23,13 +23,13 @@ def log_rating(request, recipe_id):
     return redirect("recipe_detail", pk=recipe_id)
 
 
-class RecipeListView(LoginRequiredMixin, ListView):
+class RecipeListView(ListView):
     model = Recipe
     template_name = "recipes/list.html"
-    paginate_by = 2
+    paginate_by = 8
 
 
-class RecipeDetailView(LoginRequiredMixin, DetailView):
+class RecipeDetailView(DetailView):
     model = Recipe
     template_name = "recipes/detail.html"
 
