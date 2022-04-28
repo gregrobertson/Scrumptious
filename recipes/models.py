@@ -1,3 +1,5 @@
+import pstats
+from tkinter import CASCADE
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.conf import settings
@@ -36,7 +38,7 @@ class FoodItem(models.Model):
 
 
 class Ingredient(models.Model):
-    amount = models.FloatField(validators=[MaxValueValidator(20)])
+    amount = models.FloatField(validators=[MaxValueValidator(200)])
     recipe = models.ForeignKey(
         "Recipe",
         related_name="ingredients",
@@ -77,4 +79,14 @@ class Rating(models.Model):
         "Recipe",
         related_name="ratings",
         on_delete=models.CASCADE,
+    )
+
+
+class ShoppingItem(models.Model):
+    user = models.ForeignKey(USER_MODEL, on_delete=models.CASCADE, null=True)
+    food_item = models.ForeignKey(
+        "FoodItem",
+        related_name="shopping_items",
+        on_delete=models.PROTECT,
+        null=True,
     )

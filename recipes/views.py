@@ -1,3 +1,4 @@
+from django.db import IntegrityError
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views.generic.detail import DetailView
@@ -7,7 +8,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 from recipes.forms import RatingForm
 
-from recipes.models import Recipe
+from recipes.models import Ingredient, Recipe, ShoppingItem
 
 
 def log_rating(request, recipe_id):
@@ -61,3 +62,24 @@ class RecipeDeleteView(LoginRequiredMixin, DeleteView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+
+
+def create_shopping_item(request):
+    # Get the value for the "ingredient_id" from the POST
+    ingredient_id = request.POST.get("ingredient_id")
+
+    # Get the specific ingredient from the Ingredient model
+    ingredient = Ingredient.objects.get(id=ingredient_id)
+
+    # Get the current user
+    user = request.user
+    try:
+        # Create the new shopping item in the database
+        ShoppingItem.objects.create(
+            food_item=ingredient.food,
+            user=user,
+        )
+    except IntegrityError:
+        pass
+    # Go back to the recipe page
+    return redirect("recipe_detail", pk=ingredient.recipe.id)
