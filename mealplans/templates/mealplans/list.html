@@ -23,7 +23,7 @@
 
 {% block content %}
   <main class="recipe-grid">
-    {% for meals in banana %}
+    {% for meals in mealplan_list %}
       <div class="recipe-card">
         <h2 class="recipe-card-title">
           <a href="{% url 'mealplans_detail' meals.pk %}">{{ meals.name }}</a>
@@ -36,12 +36,7 @@
       </div>
     {% empty %}
       <div>
-        <h1>No tags, yet</h1>
-        <p>
-          Would you like to
-          <a href="{% url 'mealplans_new' %}">create</a>
-          one?
-        </p>
+
       </div>
     {% endfor %}
   </main>

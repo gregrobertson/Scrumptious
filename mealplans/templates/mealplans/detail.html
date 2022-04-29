@@ -22,13 +22,13 @@
 {% endblock pagination %}
 
 {% block content %}
-  <main class="tag-detail">
+  <main class="mealplan-detail">
     <div>
-      <a href="{% url 'tag_edit' tag.id %}">Edit</a>
-      <a href="{% url 'tag_delete' tag.id %}">Delete</a>
+     <a href="{% url 'mealplans_edit' mealplan.pk %}">Edit</a>
+     <a href="{% url 'mealplans_delete' mealplan.pk %}">Delete</a>
     </div>
-    <h2>Recipes for {{ tag.name }}</h2>
-    {% for recipe in tag.recipes.all %}
+    <h2>Recipes for {{ mealplan.name }}</h2>
+    {% for recipe in mealplan.recipes.all %}
       <p>
         <a href="{% url 'recipe_detail' recipe.pk %}">{{ recipe.name }}</a>
       </p>

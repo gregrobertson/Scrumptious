@@ -1,1 +1,18 @@
-<h1>Test Delete</h1>
+{% extends 'base.html' %}
+  
+{% block content %}
+
+  <main>
+    <div class="delete-form">
+      <form method="post">
+        {% csrf_token %}
+        <h3>Are you sure you want to delete "{{ mealplan.name }}"?</h3>
+        {{ mealplan.as_p }}
+        <div>
+          <button class="button">Delete</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  {% endblock content %}

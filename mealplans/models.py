@@ -18,4 +18,4 @@ class MealPlan(models.Model):
     recipes = models.ManyToManyField("recipes.Recipe", related_name="recipes")
 
     def __str__(self):
-        return str(self.name) + " by " + str(self.author)
+        return str(self.name) + " by " + str(self.owner)

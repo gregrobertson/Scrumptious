@@ -16,6 +16,6 @@ urlpatterns = [
     path(
         "<int:pk>/delete/",
         MealPlanDeleteView.as_view(),
-        name="meal_plans_delete",
+        name="mealplans_delete",
     ),
 ]
