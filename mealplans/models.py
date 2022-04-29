@@ -11,12 +11,11 @@ class MealPlan(models.Model):
     date = models.DateField(auto_now_add=True)
     owner = models.ForeignKey(
         USER_MODEL,
-        # related_name="mealplans",
+        related_name="mealplans",
         on_delete=models.CASCADE,
         null=True,
     )
     recipes = models.ManyToManyField("recipes.Recipe", related_name="recipes")
 
     def __str__(self):
-        return self.name + " by " + str(self.author)
-        pass
+        return str(self.name) + " by " + str(self.author)

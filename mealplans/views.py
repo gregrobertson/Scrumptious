@@ -13,6 +13,7 @@ class MealPlanListView(LoginRequiredMixin, ListView):
     model = MealPlan
     template_name = "mealplans/list.html"
     paginate_by = 8
+    context_object_name = "banana"
 
 
 class MealPlanDetailView(LoginRequiredMixin, DetailView):
