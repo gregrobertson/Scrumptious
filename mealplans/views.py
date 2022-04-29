@@ -1,3 +1,4 @@
+from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
@@ -23,8 +24,18 @@ class MealPlanDetailView(LoginRequiredMixin, DetailView):
 class MealPlanCreateView(LoginRequiredMixin, CreateView):
     model = MealPlan
     template_name = "mealplans/new.html"
-    fields = ["name"]
-    success_url = reverse_lazy("mealplans_list")
+    fields = ["name", "date", "recipes"]
+    # success_url = reverse_lazy("mealplans_list")
+
+    # def get_success_url(self) -> str:
+    #     return reverse_lazy("mealplan_detail", args[self.object.id])
+
+    def form_valid(self, form):
+        plan = form.save(commit=False)
+        plan.owner = self.request.user
+        plan.save()
+        form.save_m2m()
+        return redirect("mealplans_detail", pk=plan.id)
 
 
 class MealPlanUpdateView(LoginRequiredMixin, UpdateView):

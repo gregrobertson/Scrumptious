@@ -85,9 +85,9 @@ def create_shopping_item(request):
     return redirect("recipe_detail", pk=ingredient.recipe.id)
 
 
-class ShoppingItemListView(LoginRequiredMixin, ListView):
-    model = Recipe
-    template_name = "recipes/shopping_items.html"
+class ShoppingItemsListView(LoginRequiredMixin, ListView):
+    model = ShoppingItem
+    template_name = "shopping_items/list.html"
 
 
 def delete_all_shopping_items(request):

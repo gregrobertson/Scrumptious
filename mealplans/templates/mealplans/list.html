@@ -23,6 +23,7 @@
 
 {% block content %}
   <main class="recipe-grid">
+    <a href="{% url 'mealplans_new' %}">Create</a>
     {% for meals in mealplan_list %}
       <div class="recipe-card">
         <h2 class="recipe-card-title">

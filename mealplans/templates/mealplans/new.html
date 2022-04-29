@@ -4,7 +4,7 @@
   <main class="recipe-form">
     <form method="post">
       {% csrf_token %}
-      {{ mealplan.as_p }}
+      {{ form.as_p }}
       <div class="control">
         <button class="button">Create</button>
       </div>

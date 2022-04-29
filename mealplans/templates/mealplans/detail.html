@@ -27,7 +27,7 @@
      <a href="{% url 'mealplans_edit' mealplan.pk %}">Edit</a>
      <a href="{% url 'mealplans_delete' mealplan.pk %}">Delete</a>
     </div>
-    <h2>Recipes for {{ mealplan.name }}</h2>
+    <h2>Recipes for {{ mealplan.name }} </h2>
     {% for recipe in mealplan.recipes.all %}
       <p>
         <a href="{% url 'recipe_detail' recipe.pk %}">{{ recipe.name }}</a>
