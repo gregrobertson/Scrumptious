@@ -37,9 +37,13 @@ class RecipeDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["rating_form"] = RatingForm()
+
         foods = []
         for item in self.request.user.shopping_items.all():
             foods.append(item.food_item)
+
+        context["servings"] = self.request.GET.get("servings")
+
         context["food_in_shopping_list"] = foods
         return context
 
@@ -47,14 +51,18 @@ class RecipeDetailView(DetailView):
 class RecipeCreateView(LoginRequiredMixin, CreateView):
     model = Recipe
     template_name = "recipes/new.html"
-    fields = ["name", "description", "image"]
+    fields = ["name", "description", "image", "servings"]
     success_url = reverse_lazy("recipes_list")
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
 
 
 class RecipeUpdateView(LoginRequiredMixin, UpdateView):
     model = Recipe
     template_name = "recipes/edit.html"
-    fields = ["name", "author", "description", "image"]
+    fields = ["name", "author", "description", "image", "servings"]
     success_url = reverse_lazy("recipes_list")
 
 
