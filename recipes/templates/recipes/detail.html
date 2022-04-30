@@ -1,5 +1,7 @@
-{% extends 'base.html' %} {% load markdownify %} {% load resizer %} {% block
-content %}
+{% extends 'base.html' %} 
+{% load markdownify %} 
+{% load resizer %} 
+{% block content %}
 <main class="recipe-detail">
   <div>
     <a href="{% url 'recipe_edit' recipe.id %}">Edit</a>
@@ -39,7 +41,7 @@ content %}
     <tbody>
       {% for ingredient in recipe.ingredients.all %}
       <tr>
-        <td>{{ ingredient|resize_to }}</td>
+        <td>{{ ingredient|resize_to:servings }}</td>
 
         <td>{{ ingredient.measure.name }}</td>
         <td>{{ ingredient.food.name }}</td>
