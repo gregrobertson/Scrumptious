@@ -30,7 +30,7 @@ class RecipeListView(ListView):
     paginate_by = 8
 
 
-class RecipeDetailView(DetailView):
+class RecipeDetailView(LoginRequiredMixin, DetailView):
     model = Recipe
     template_name = "recipes/detail.html"
 
