@@ -5,12 +5,13 @@ button,
 select,
 textarea,
 input {
-  font-family: 'Roboto';
-  font-size: 16px;
+  font-family: cursive;
+  font-size: 18px;
 }
 
 body {
-  background-color: lightblue;
+  background: rgb(124, 0, 0);
+  background: linear-gradient(90deg, rgba(124, 0, 0, 0.9164040616246498) 0%, rgba(168, 69, 57, 0.9051995798319328) 18%, rgba(255, 119, 0, 0.6895133053221288) 84%);
 }
 
 header nav ul {
@@ -23,7 +24,8 @@ header nav ul {
 a,
 a:visited {
   text-decoration: none;
-  color: #208ACC;
+  color: #003d63;
+  font-weight: bold;
 }
 
 button.button {
@@ -72,12 +74,13 @@ textarea {
   padding: 2em;
 }
 
+
 .recipe-card-title {
   margin-bottom: 0;
 }
 
 .recipe-card-date {
-  color: darkgray;
+  color: rgb(0, 0, 0);
 }
 
 .recipe-form {
@@ -111,6 +114,7 @@ textarea {
 .pull-right {
   float: right;
   margin: 1em;
+  opacity: 1.0;
 }
 
 .control {
@@ -121,4 +125,26 @@ textarea {
   max-width: 600px;
   margin: auto;
   text-align: center;
+}
+
+img {
+  opacity: 1.0;
+  filter: alpha(opacity=40);
+  width: 100%;
+  border-radius: 16px;
+  transition: 1s ease;
+
+
+
+}
+
+img:hover {
+  opacity: 0.5;
+  filter: alpha(opacity=100);
+  border-radius: 16px;
+  /* filter: grayscale(100%); */
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
+  transition: 1s ease;
 }
