@@ -27,7 +27,7 @@ def log_rating(request, recipe_id):
 class RecipeListView(ListView):
     model = Recipe
     template_name = "recipes/list.html"
-    paginate_by = 8
+    paginate_by = 4
 
 
 class RecipeDetailView(LoginRequiredMixin, DetailView):
@@ -71,9 +71,7 @@ class RecipeDeleteView(LoginRequiredMixin, DeleteView):
     template_name = "recipes/delete.html"
     success_url = reverse_lazy("recipes_list")
 
-    def form_valid(self, form):
-        form.instance.author = self.request.user
-        return super().form_valid(form)
+
 
 
 def create_shopping_item(request):
